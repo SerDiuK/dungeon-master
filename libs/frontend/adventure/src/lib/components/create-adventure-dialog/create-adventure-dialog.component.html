@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+  <label
+    >Scenario
+    <select formControlName="scenario">
+      <option value="">Dragon keep</option>
+    </select>
+  </label>
+  <label for="">
+    Name
+    <input type="text" formControlName="name" />
+  </label>
+
+  <button (click)="startAdventure()" type="submit" [disabled]="form.invalid || null">Start new Adventure</button>
+</form>
+
+<!-- @for(let chapter of chapters) {
+
+} -->
+<p></p>

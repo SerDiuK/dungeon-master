@@ -14,7 +14,24 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@dm/backend-adventure": ["libs/backend/adventure/src/index.ts"],
+      "@dm/backend-ai": ["libs/backend/ai/src/index.ts"],
+      "@dm/backend-auth": ["libs/backend/auth/src/index.ts"],
+      "@dm/backend-character": ["libs/backend/character/src/index.ts"],
+      "@dm/backend-models": ["libs/backend/models/src/index.ts"],
+      "@dm/backend-scenario": ["libs/backend/scenario/src/index.ts"],
+      "@dm/backend-trpc": ["libs/backend/trpc/src/index.ts"],
+      "@dm/backend-user": ["libs/backend/user/src/index.ts"],
+      "@dm/frontend-adventure": ["libs/frontend/adventure/src/index.ts"],
+      "@dm/frontend-auth": ["libs/frontend/auth/src/index.ts"],
+      "@dm/frontend-character": ["libs/frontend/character/src/index.ts"],
+      "@dm/frontend-scenario": ["libs/frontend/scenario/src/index.ts"],
+      "@dm/frontend-shared": ["libs/frontend/shared/src/index.ts"],
+      "@dm/frontend-user": ["libs/frontend/user/src/index.ts"],
+      "@dm/shared-data-model": ["libs/shared/data-model/src/index.ts"],
+      "@dm/trcp-app-router": ["libs/shared/trpc/app-router.type.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
