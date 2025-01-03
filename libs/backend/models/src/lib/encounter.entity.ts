@@ -1,8 +1,8 @@
 import { prop, getModelForClass, Ref } from '@typegoose/typegoose';
-import { EncounterType, Encounter as IEncounter } from '@dm/shared-data-model';
+import { EncounterType, EncounterFields } from '@dm/shared-data-model';
 import { Location } from './location.entity';
 
-export class Encounter implements IEncounter {
+export class Encounter implements EncounterFields {
   @prop({ required: true, trim: true })
   public name!: string;
 

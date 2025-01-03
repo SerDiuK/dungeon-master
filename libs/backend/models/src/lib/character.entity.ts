@@ -1,8 +1,8 @@
 import { prop, getModelForClass, Ref } from '@typegoose/typegoose';
-import { Alignment, Character as ICharacter, Race } from '@dm/shared-data-model';
+import { Alignment, CharacterFields, Race } from '@dm/shared-data-model';
 import { Adventure } from './adventure.entity';
 
-export class Character implements ICharacter {
+export class Character implements CharacterFields {
   @prop({ required: true, trim: true })
   public name!: string;
 

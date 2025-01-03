@@ -1,8 +1,7 @@
 import { User } from '@dm/shared-data-model';
 import { UserModel } from '@dm/backend-models';
-import { DocumentType } from '@typegoose/typegoose';
 
-export async function getUser(id: string): Promise<DocumentType<User> | { error: unknown }> {
+export async function getUser(id: string): Promise<User | { error: unknown }> {
   try {
     const user = await UserModel.findById(id).exec();
 

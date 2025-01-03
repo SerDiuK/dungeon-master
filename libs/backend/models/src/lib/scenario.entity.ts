@@ -1,8 +1,8 @@
 import { prop, getModelForClass, Ref } from '@typegoose/typegoose';
-import { Scenario as IScenario } from '@dm/shared-data-model';
+import { ScenarioFields } from '@dm/shared-data-model';
 import { Chapter } from './chapter.entity';
 
-export class Scenario implements IScenario {
+export class Scenario implements ScenarioFields {
   @prop({ required: true, trim: true })
   public name!: string;
 

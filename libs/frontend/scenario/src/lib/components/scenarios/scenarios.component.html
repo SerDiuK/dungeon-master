@@ -1,19 +1,25 @@
-<!-- <p-dataview #dv [value]="scenarios()">
-  <ng-template #list let-items>
-    <div class="grid grid-cols-12 gap-4 grid-nogutter">
-      <div class="col-span-12" *ngFor="let item of items; let first = first" class="col-span-12">
-        <div
-          class="flex flex-col sm:flex-row sm:items-center p-6 gap-4"
-          [ngClass]="{ 'border-t border-surface-200 dark:border-surface-700': !first }"
-        >
-          <div class="md:w-40 relative">Bing</div>
-          <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">Bong</div>
+<div class="container p-4">
+  <p-button styleClass="my-4" label="Create new scenario" (click)="showDialog.set(true)" severity="contrast"></p-button>
+
+  <p-dataview #dv [value]="scenarios()">
+    <ng-template #list let-items>
+      <div class="grid grid-cols-12 gap-4 grid-nogutter">
+        <div class="col-span-12" *ngFor="let item of items; let first = first" class="col-span-12">
+          <div
+            class="flex flex-col sm:flex-row sm:items-center p-6 gap-4"
+            [ngClass]="{ 'border-t border-surface-200 dark:border-surface-700': !first }"
+          >
+            <a [routerLink]="'/scenarios/' + item._id">
+              <div class="md:w-40 relative">{{ item.name }}</div>
+            </a>
+            <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+              {{ item.description }}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </ng-template>
-</p-dataview> -->
-<button (click)="openCreateScenario()">Create new scenario</button>
-<div class="card flex justify-center">
-  {{ scenarios | json }}
+    </ng-template>
+  </p-dataview>
 </div>
+
+<dm-create-scenario-dialog [visible]="showDialog()" (create)="createScenario($event)" (close)="showDialog.set(false)" />

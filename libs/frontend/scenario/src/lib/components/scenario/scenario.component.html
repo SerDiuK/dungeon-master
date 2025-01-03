@@ -1,1 +1,9 @@
-<p>scenario works!</p>
+<div class="container">
+  <a href="/scenarios">Back</a>
+  @defer(when !loading()) {
+  <h2>{{ scenario()?.name }}</h2>
+  <p>{{ scenario()?.description }}</p>
+  } @placeholder {
+  <p>Loading...</p>
+  }
+</div>

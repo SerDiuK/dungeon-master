@@ -3,8 +3,6 @@
 - Auth with Logto
 - Map Auth with UserModel
 
-- Create CharacterModel linked to User and Adventure
-
 - Create new Adventure
 - Create ChaptersModel for Adventure
 - Save summary of each chapter in Adventure
@@ -30,3 +28,4 @@ Scenario
         Items
 
 Drag&Drop Grid for visualising
+ Adventure => uses scenario

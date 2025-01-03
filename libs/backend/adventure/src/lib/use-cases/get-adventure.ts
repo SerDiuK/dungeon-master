@@ -1,10 +1,10 @@
-import { Adventure } from '@dm/shared-data-model';
+import { AdventureFields } from '@dm/shared-data-model';
 import { AdventureModel } from '@dm/backend-models';
 import { DocumentType } from '@typegoose/typegoose';
 
 export async function getAdventure(
   id: string,
-): Promise<DocumentType<Adventure> | { error: unknown; success: boolean }> {
+): Promise<DocumentType<AdventureFields> | { error: unknown; success: boolean }> {
   try {
     const adventure = await AdventureModel.findById(id).exec();
 

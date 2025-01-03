@@ -1,10 +1,10 @@
-import { Adventure, CreateAdventureDto } from '@dm/shared-data-model';
+import { AdventureFields, CreateAdventureDto } from '@dm/shared-data-model';
 import { DocumentType } from '@typegoose/typegoose';
 import { AdventureModel, ScenarioModel } from '@dm/backend-models';
 
 export async function createAdventure(
   body: CreateAdventureDto,
-): Promise<DocumentType<Adventure> | { success: boolean; error?: unknown }> {
+): Promise<DocumentType<AdventureFields> | { success: boolean; error?: unknown }> {
   try {
     const scenario = await ScenarioModel.findById(body.scenarioId);
 

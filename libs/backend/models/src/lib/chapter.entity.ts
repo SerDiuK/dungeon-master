@@ -1,9 +1,9 @@
 import { getModelForClass, prop, Ref } from '@typegoose/typegoose';
 import { Scenario } from './scenario.entity'; // Ensure the correct import path
-import { Chapter as IChapter } from '@dm/shared-data-model';
+import { ChapterFields } from '@dm/shared-data-model';
 import { Location } from './location.entity';
 
-export class Chapter implements IChapter {
+export class Chapter implements ChapterFields {
   @prop({ required: true, trim: true })
   public name!: string;
 

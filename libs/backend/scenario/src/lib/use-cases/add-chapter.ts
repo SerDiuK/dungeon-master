@@ -1,10 +1,7 @@
 import { ScenarioModel, ChapterModel } from '@dm/backend-models';
 import { AddChapterDto, Scenario } from '@dm/shared-data-model';
-import { DocumentType } from '@typegoose/typegoose';
 
-export const addChapter = async (
-  dto: AddChapterDto,
-): Promise<DocumentType<Scenario> | { success: boolean; error?: unknown }> => {
+export const addChapter = async (dto: AddChapterDto): Promise<Scenario | { success: boolean; error?: unknown }> => {
   try {
     const scenario = await ScenarioModel.findById(dto.scenarioId);
     if (!scenario) {

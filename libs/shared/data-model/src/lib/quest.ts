@@ -1,3 +1,5 @@
+import type { DocumentType } from '@typegoose/typegoose';
+
 export enum QuestStatus {
   Unstarted = 'unstarted',
   Active = 'active',
@@ -5,8 +7,10 @@ export enum QuestStatus {
   Failed = 'failed',
 }
 
-export interface Quest {
+export interface QuestFields {
   name: string;
   description: string;
   status: QuestStatus;
 }
+
+export type Quest = DocumentType<QuestFields>;

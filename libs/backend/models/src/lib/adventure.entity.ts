@@ -1,10 +1,10 @@
-import { Adventure as IAdventure } from '@dm/shared-data-model';
+import { AdventureFields } from '@dm/shared-data-model';
 import { prop, getModelForClass, Ref } from '@typegoose/typegoose';
 import { Character } from './character.entity';
 import { Scenario } from './scenario.entity';
 import { Chapter } from './chapter.entity';
 
-export class Adventure implements IAdventure {
+export class Adventure implements AdventureFields {
   @prop({ required: true, trim: true })
   public name!: string;
 

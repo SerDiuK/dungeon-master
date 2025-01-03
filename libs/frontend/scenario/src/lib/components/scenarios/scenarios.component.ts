@@ -1,28 +1,33 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { DataViewModule } from 'primeng/dataview';
-import { TrpcService } from '@dm/frontend-shared';
-import { Scenario } from '@dm/shared-data-model';
+import { ButtonModule } from 'primeng/button';
+import { DataViewModule } from 'primeng/dataview';
+import { CreateScenarioDto } from '@dm/shared-data-model';
+import { CreateScenarioDialogComponent } from '../create-scenario-dialog/create-scenario-dialog.component';
+import { ScenariosStore } from '../../store/scenarios.store';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'dm-scenarios',
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonModule, DataViewModule, CreateScenarioDialogComponent, RouterModule],
   templateUrl: './scenarios.component.html',
   styleUrl: './scenarios.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScenariosComponent implements OnInit {
-  private readonly trpcClient = inject(TrpcService).getClient();
+  private readonly scenariosStore = inject(ScenariosStore);
+  private readonly router = inject(Router);
 
-  scenarios = signal<Scenario[]>([]);
+  scenarios = this.scenariosStore.scenarios;
+  showDialog = signal(false);
 
   async ngOnInit() {
-    const scenarios = (await this.trpcClient.scenario.getScenarios.query()) as Scenario[];
-
-    this.scenarios.set(scenarios);
+    await this.scenariosStore.getScenarios();
   }
 
-  openCreateScenario() {
-    console.log('OPEN CREATE SCENARIO DIALOG (maybe a grid???)');
+  async createScenario(newScenario: CreateScenarioDto) {
+    const scenario = await this.scenariosStore.createScenario(newScenario);
+    this.showDialog.set(false);
+    this.router.navigate(['scenarios', scenario._id]);
   }
 }

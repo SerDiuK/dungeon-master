@@ -1,19 +1,39 @@
-<form [formGroup]="form">
-  <label
-    >Scenario
-    <select formControlName="scenario">
-      <option value="">Dragon keep</option>
-    </select>
-  </label>
-  <label for="">
-    Name
-    <input type="text" formControlName="name" />
-  </label>
-
-  <button (click)="startAdventure()" type="submit" [disabled]="form.invalid || null">Start new Adventure</button>
-</form>
-
-<!-- @for(let chapter of chapters) {
-
-} -->
-<p></p>
+<p-dialog
+  header="Create scenario"
+  maskStyleClass="backdrop-blur-sm"
+  styleClass="w-[600px] max-w-[90%]"
+  [modal]="true"
+  [visible]="visible()"
+  (visibleChange)="close.emit()"
+>
+  <form [formGroup]="form">
+    <div class="flex items-center gap-4 mb-4">
+      <label class="flex flex-col gap-2 w-full">
+        <span class="font-semibold">Title</span>
+        <input
+          pInputText
+          formControlName="name"
+          class="flex-auto"
+          autocomplete="off"
+          placeholder="My awesome adventure..."
+        />
+      </label>
+    </div>
+    <div class="flex items-center gap-4 mb-8">
+      <label for="description" class="flex flex-col gap-2 w-full">
+        <span class="font-semibold">Scenario</span>
+        <p-dropdown
+          [options]="scenarios()"
+          formControlName="scenarioId"
+          optionLabel="name"
+          optionValue="_id"
+          placeholder="Pick scenario"
+        ></p-dropdown>
+      </label>
+    </div>
+    <div class="flex justify-end gap-2">
+      <p-button label="Cancel" severity="secondary" (click)="close.emit()" />
+      <p-button label="Start adventure" [attr.disabled]="!form.valid" (click)="submit()" />
+    </div>
+  </form>
+</p-dialog>

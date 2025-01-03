@@ -1,1 +1,39 @@
-<h2>Create a new scenario</h2>
+<p-dialog
+  header="Create scenario"
+  maskStyleClass="backdrop-blur-sm"
+  styleClass="w-[600px] max-w-[90%]"
+  [modal]="true"
+  [visible]="visible()"
+  (visibleChange)="close.emit()"
+>
+  <form [formGroup]="form">
+    <div class="flex items-center gap-4 mb-4">
+      <label class="flex flex-col gap-2 w-full">
+        <span class="font-semibold">Title</span>
+        <input
+          pInputText
+          formControlName="name"
+          class="flex-auto"
+          autocomplete="off"
+          placeholder="Dungeon of the dragon master..."
+        />
+      </label>
+    </div>
+    <div class="flex items-center gap-4 mb-8">
+      <label for="description" class="flex flex-col gap-2 w-full">
+        <span class="font-semibold">Description</span>
+        <textarea
+          pTextarea
+          formControlName="description"
+          class="flex-auto"
+          autocomplete="off"
+          placeholder="Once there was an evil witch in the town..."
+        ></textarea>
+      </label>
+    </div>
+    <div class="flex justify-end gap-2">
+      <p-button label="Cancel" severity="secondary" (click)="close.emit()" />
+      <p-button label="Save" [attr.disabled]="!form.valid" (click)="submit()" />
+    </div>
+  </form>
+</p-dialog>

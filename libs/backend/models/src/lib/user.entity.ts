@@ -1,7 +1,7 @@
 import { prop, getModelForClass } from '@typegoose/typegoose';
-import { User as IUser } from '@dm/shared-data-model';
+import { UserFields } from '@dm/shared-data-model';
 
-class User implements IUser {
+class User implements UserFields {
   @prop({ required: true, trim: true })
   public name!: string;
 
@@ -10,6 +10,9 @@ class User implements IUser {
 
   @prop({ required: true, select: false })
   public password!: string;
+
+  @prop()
+  public avatar?: string;
 }
 
 export const UserModel = getModelForClass(User);

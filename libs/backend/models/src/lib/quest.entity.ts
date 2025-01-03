@@ -1,5 +1,5 @@
 import { prop, getModelForClass } from '@typegoose/typegoose';
-import { QuestStatus, Quest as IQuest } from '@dm/shared-data-model';
+import { QuestStatus, QuestFields as IQuest } from '@dm/shared-data-model';
 
 export class Quest implements IQuest {
   @prop({ required: true, trim: true })

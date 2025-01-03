@@ -61,7 +61,7 @@ export interface Monster {
   condition_immunities: unknown[];
   senses: Senses;
   languages: string;
-  challenge_rating: number;
+  challenge_rating: string;
   proficiency_bonus: number;
   xp: number;
   special_abilities: SpecialAbility[];

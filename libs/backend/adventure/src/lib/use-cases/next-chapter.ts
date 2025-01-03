@@ -1,10 +1,10 @@
 import { AdventureModel, ScenarioModel, ChapterModel } from '@dm/backend-models';
-import { Chapter } from '@dm/shared-data-model';
+import { ChapterFields } from '@dm/shared-data-model';
 import { DocumentType } from '@typegoose/typegoose';
 
 export const nextChapter = async (
   adventureId: string,
-): Promise<DocumentType<Chapter> | { success: boolean; error?: unknown }> => {
+): Promise<DocumentType<ChapterFields> | { success: boolean; error?: unknown }> => {
   try {
     const adventure = await AdventureModel.findById(adventureId);
 

@@ -1,10 +1,9 @@
-import { Scenario, CreateScenarioDto } from '@dm/shared-data-model';
+import { CreateScenarioDto, Scenario } from '@dm/shared-data-model';
 import { ScenarioModel } from '@dm/backend-models';
-import { DocumentType } from '@typegoose/typegoose';
 
 export async function createScenario(
   body: CreateScenarioDto,
-): Promise<DocumentType<Scenario> | { success: boolean; error?: unknown }> {
+): Promise<Scenario | { success: boolean; error?: unknown }> {
   try {
     const scenario = new ScenarioModel({
       name: body.name,

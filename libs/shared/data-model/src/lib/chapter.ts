@@ -1,4 +1,4 @@
-export interface Chapter {
+export interface ChapterFields {
   name: string;
   description: string;
 }

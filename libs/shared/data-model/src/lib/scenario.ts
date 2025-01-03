@@ -1,10 +1,13 @@
-import { Chapter } from './chapter';
+import type { DocumentType } from '@typegoose/typegoose';
+import type { ChapterFields } from './chapter';
 
-export interface Scenario {
+export interface ScenarioFields {
   name: string;
   description: string;
 }
 
-export type CreateScenarioDto = Pick<Scenario, 'name' | 'description'>;
+export type Scenario = DocumentType<ScenarioFields>;
 
-export type AddChapterDto = Pick<Chapter, 'description' | 'name'> & { scenarioId: string };
+export type CreateScenarioDto = Pick<ScenarioFields, 'name' | 'description'>;
+
+export type AddChapterDto = Pick<ChapterFields, 'description' | 'name'> & { scenarioId: string };

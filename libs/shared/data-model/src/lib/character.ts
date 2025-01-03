@@ -1,7 +1,8 @@
-import { Alignment } from './alignment';
-import { Race } from './race';
+import type { DocumentType } from '@typegoose/typegoose';
+import type { Alignment } from './alignment';
+import type { Race } from './race';
 
-export interface Character {
+export interface CharacterFields {
   name: string;
   race: Race;
   alignment: Alignment;
@@ -9,4 +10,6 @@ export interface Character {
   // equipment: Item[];
 }
 
-export type CreateCharacterDto = Pick<Character, 'name' | 'race'>;
+export type Character = DocumentType<CharacterFields>;
+
+export type CreateCharacterDto = Pick<CharacterFields, 'name' | 'race'>;
